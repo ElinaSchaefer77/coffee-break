@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import ParticipantsScreen from "./screens/ParticipantsScreen";
+import RoomsScreen from "./screens/RoomsScreen";
+import ResultScreen from "./screens/ResultScreen";
+import RateScreen from "./screens/RateScreen";
+import LayoutScreen from "./screens/LayoutScreen";
+import NoMatchScreen from "./screens/NoMatchScreen";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<LayoutScreen />}>
+          <Route index element={<ParticipantsScreen />} />
+          <Route path="/:id" element={<ParticipantsScreen />} />
+          <Route path="rooms" element={<RoomsScreen />} />
+          <Route path="rooms/result" element={<ResultScreen />} />
+          <Route path="rooms/result/rated" element={<RateScreen />} />
+          <Route path="*" element={<NoMatchScreen />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
-
-export default App;
