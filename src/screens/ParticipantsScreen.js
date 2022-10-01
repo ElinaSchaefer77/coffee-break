@@ -8,7 +8,7 @@ import {
   Grid,
   Button,
 } from "semantic-ui-react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 // TODO: Seite wechseln
 // TODO: fokus in feld zu Beginn setzen
@@ -22,6 +22,7 @@ export default function ParticipantsScreen() {
     new Parse.Object("CoffeeBreakSession")
   );
   let { id } = useParams();
+  const navigate = useNavigate();
   useEffect(() => {
     getCoffeeBreakSession(id, setList, setCoffeeBreakSession, setLoading);
   }, [id, setList, setCoffeeBreakSession, setLoading]);
@@ -82,7 +83,9 @@ export default function ParticipantsScreen() {
               loading={loading}
               primary
               disabled={list.length < 4}
-              onClick={() => submitList(list, coffeeBreakSession, setLoading)}
+              onClick={() =>
+                submitList(list, coffeeBreakSession, setLoading, navigate)
+              }
             >
               Bestätigen &amp; Weiter
             </Button>
@@ -134,12 +137,13 @@ async function getCoffeeBreakSession(
   }
 }
 
-async function submitList(list, coffeeBreakSession, setLoading) {
+async function submitList(list, coffeeBreakSession, setLoading, navigate) {
   setLoading(true);
   coffeeBreakSession.set("participants", list);
   try {
-    await coffeeBreakSession.save();
+    const result = await coffeeBreakSession.save();
     setLoading(false);
+    navigate(`/${result.id}/rooms`);
     // TODO navigate
   } catch (error) {
     alert("Failed to create new object: " + error.message);

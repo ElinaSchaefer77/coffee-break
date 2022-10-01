@@ -13,9 +13,9 @@ export default function App() {
         <Route path="/" element={<LayoutScreen />}>
           <Route index element={<ParticipantsScreen />} />
           <Route path="/:id" element={<ParticipantsScreen />} />
-          <Route path="rooms" element={<RoomsScreen />} />
-          <Route path="rooms/result" element={<ResultScreen />} />
-          <Route path="rooms/result/rated" element={<RateScreen />} />
+          <Route path="/:id/rooms" element={<RoomsScreen />} />
+          <Route path="/:id/rooms/result" element={<ResultScreen />} />
+          <Route path="/:id/rooms/result/rated" element={<RateScreen />} />
           <Route path="*" element={<NoMatchScreen />} />
         </Route>
       </Routes>
