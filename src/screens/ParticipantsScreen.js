@@ -142,7 +142,7 @@ async function submitList(list, coffeeBreakSession, setLoading, navigate) {
   try {
     const result = await coffeeBreakSession.save();
     setLoading(false);
-    navigate(`/${result.id}/rooms`);
+    navigate(`${process.env.PUBLIC_URL}/${result.id}/rooms`);
   } catch (error) {
     alert("Failed to create new object: " + error.message);
     setLoading(false);

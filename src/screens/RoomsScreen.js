@@ -22,6 +22,7 @@ export default function App() {
 
   return (
     <div>
+      {console.log("test", process.env.PUBLIC_URL)}
       <Grid textAlign="center">
         <Form>
           <Form.Group></Form.Group>
@@ -76,7 +77,7 @@ async function submitNumber(rooms, coffeeBreakSession, setLoading, navigate) {
   try {
     const result = await coffeeBreakSession.save();
     setLoading(false);
-    navigate(`/${result.id}/rooms/result`);
+    navigate(`${process.env.PUBLIC_URL}/${result.id}/rooms/result`);
   } catch (error) {
     alert("Failed to create new object: " + error.message);
     setLoading(false);
