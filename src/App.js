@@ -10,28 +10,13 @@ export default function App() {
   return (
     <div>
       <Routes>
-        <Route path={`${process.env.PUBLIC_URL}/`} element={<LayoutScreen />}>
+        <Route path={`/`} element={<LayoutScreen />}>
           <Route index element={<ParticipantsScreen />} />
-          <Route
-            path={`${process.env.PUBLIC_URL}/:id`}
-            element={<ParticipantsScreen />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/:id/rooms`}
-            element={<RoomsScreen />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/:id/rooms/result`}
-            element={<ResultScreen />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/:id/rooms/result/rated"`}
-            element={<RateScreen />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/*`}
-            element={<NoMatchScreen />}
-          />
+          <Route path={`/:id`} element={<ParticipantsScreen />} />
+          <Route path={`/:id/rooms`} element={<RoomsScreen />} />
+          <Route path={`/:id/rooms/result`} element={<ResultScreen />} />
+          <Route path={`/:id/rooms/result/rated"`} element={<RateScreen />} />
+          <Route path={`/*`} element={<NoMatchScreen />} />
         </Route>
       </Routes>
     </div>

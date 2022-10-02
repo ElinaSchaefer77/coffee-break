@@ -77,7 +77,7 @@ async function submitNumber(rooms, coffeeBreakSession, setLoading, navigate) {
   try {
     const result = await coffeeBreakSession.save();
     setLoading(false);
-    navigate(`${process.env.PUBLIC_URL}/${result.id}/rooms/result`);
+    navigate(`/${result.id}/rooms/result`);
   } catch (error) {
     alert("Failed to create new object: " + error.message);
     setLoading(false);
