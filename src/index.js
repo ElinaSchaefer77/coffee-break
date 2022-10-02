@@ -10,9 +10,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 Parse.initialize(
-  "9otK6E3PsHzmfUOQLsljip1nUGDW0v9WNMo3p5Gt",
-  "iInrfD6iOrLG4Q0l5LHRvUE2vdLpAxLPyKI2apM4"
-); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+  process.env.REACT_APP_B4A_APP_ID,
+  process.env.REACT_APP_B4A_JAVASCRPT_KEY
+);
 Parse.serverURL = "https://parseapi.back4app.com/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

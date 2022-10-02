@@ -10,7 +10,6 @@ import {
 } from "semantic-ui-react";
 import { useParams, useNavigate } from "react-router-dom";
 
-// TODO: Seite wechseln
 // TODO: fokus in feld zu Beginn setzen
 
 export default function ParticipantsScreen() {
@@ -144,7 +143,6 @@ async function submitList(list, coffeeBreakSession, setLoading, navigate) {
     const result = await coffeeBreakSession.save();
     setLoading(false);
     navigate(`/${result.id}/rooms`);
-    // TODO navigate
   } catch (error) {
     alert("Failed to create new object: " + error.message);
     setLoading(false);
