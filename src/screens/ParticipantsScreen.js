@@ -23,7 +23,8 @@ export default function ParticipantsScreen() {
   let { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    getCoffeeBreakSession(id, setList, setCoffeeBreakSession, setLoading);
+    if (id)
+      getCoffeeBreakSession(id, setList, setCoffeeBreakSession, setLoading);
   }, [id, setList, setCoffeeBreakSession, setLoading]);
   return (
     <div>
