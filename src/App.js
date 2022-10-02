@@ -16,7 +16,7 @@ export default function App() {
           <Route path={`/:id/rooms`} element={<RoomsScreen />} />
           <Route path={`/:id/rooms/result`} element={<ResultScreen />} />
           <Route path={`/:id/rooms/result/rated"`} element={<RateScreen />} />
-          <Route path={`/*`} element={<NoMatchScreen />} />
+          <Route path={`*`} element={<NoMatchScreen />} />
         </Route>
       </Routes>
     </div>
