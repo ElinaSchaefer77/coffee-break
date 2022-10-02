@@ -18,7 +18,7 @@ Parse.serverURL = "https://parseapi.back4app.com/";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
